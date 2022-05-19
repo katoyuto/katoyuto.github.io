@@ -13,11 +13,16 @@
       var element2 = document.getElementById('int2')
       var result = parseInt(element1.value) + (element2.value)
 
-        alert(element1.value);
+      var result_text = document.getElementById('result')
+      result_text.textContent = result;
       }
     </script>
     <input id="int1" type="text" name="" value="">
     <input id="int2" type="text" name="" value="">
     <button onclick="keisanki()" name="button">計算</button>
+
+
+
+    
   </body>
 </html>
