@@ -3,27 +3,54 @@
   <head>
     <meta charset="utf-8">
     <title></title>
-  </head>
-  <body>
     <style media="screen">
       body{background-image: url("monhan.jpg");}
       img{width:400px;}
     </style>
-  </body>
-
-</html>
+  </head>
 <body>
     <script type="text/javascript">
+    let ls_count=localStorage.getItem("ls_count");
+    if(ls_count){
+      cookie_count=parseInt(ls_count);
+    }else{
+      cookie_count=0;
+    }
+    setInterval(save_action,1000);
+    function save_action(){
+      localStorage.setItem("ls_count",cookie_count);
+    }
+    setInterval(screen_update,100);
+    function screen_update(){
+      var count_text=document.getElementById('cookie_count');
+      count_text.textCountent=cookie_count;
+    }
+      function cookieclick(num){
+        cookie_count=cookie_count+num;
+      }
 
-      function cookieClick(){
-        var count_text = document.getElementById('cookie_count');
-        cookie_count = cookie_count +1;
-        count_text.textCountent = cookie_count;
+      function cursor(){
+        setInterval(cookieclick,1000,1);
+        setInterval("cookclick()",1000);
+      }
+
+      function grandma(){
+        setInterval(cookieclick,1000,4);
+        setInterval(cookieclick,1000);
       }
 
     </script>
     <p>
       <span id="cookie_count"></span>cookies
     </p>
-  <img src="cookie.jpg.jpg" alt="">
+  <img onclick="cookieclick(1)" src="cookie,jpg.jpg"alt="">
+  <ul>
+    <li　onclick="cursor()">カーソル</li>
+    <li　onclick="grandma()">グランマ</li>
+    <li>農場</li>
+    <li>鉱山</li>
+    <li>工場</li>
+    <li></li>
+  </ul>
 </body>
+</html>
