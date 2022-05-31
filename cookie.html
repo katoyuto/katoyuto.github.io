@@ -1,11 +1,20 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
     <meta charset="utf-8">
     <title></title>
     <style media="screen">
       body{background-image: url("monhan.jpg");}
       img{width:400px;}
+      img{transition: transform.3s ease}
+      .container{display:flex;}
+      .item{flex-grow:2;}
+      .item{flex-grow:4;}
+      .item{flex-grow:3;}
     </style>
   </head>
 <body>
@@ -16,18 +25,18 @@
     }else{
       cookie_count=0;
     }
-    setInterval(save_action,1000);
-    function save_action(){
-      localStorage.setItem("ls_count",cookie_count);
-    }
-    setInterval(screen_update,100);
-    function screen_update(){
-      var count_text=document.getElementById('cookie_count');
-      count_text.textCountent=cookie_count;
-    }
+    setInterval(save_action);
+
       function cookieclick(num){
-        cookie_count=cookie_count+num;
-      }
+      var count_text=document.getElementById('cookie_img');
+      cookie_img.classList.remove('animate__animated','animate_shakeX');
+      void cookie_img.offsetWidth;
+      cookie_img.classList.add('animate__animated','animate_shakeX');
+
+      var count_text = document.getElementById('cookie_count');
+      cookie_count= cookie_count + num;
+      count_text.textContent = cookie_count;
+    }
 
       function cursor(){
         setInterval(cookieclick,1000,1);
@@ -40,10 +49,19 @@
       }
 
     </script>
-    <p>
+    <div class="container">
+    <div class="item1">
+      <p>
       <span id="cookie_count"></span>cookies
     </p>
   <img onclick="cookieclick(1)" src="cookie,jpg.jpg"alt="">
+</div>
+
+<div class="item2">
+  <p class="animate__animated animate__bounce">
+  製作途中
+</div>
+<div class="item3">
   <ul>
     <li　onclick="cursor()">カーソル</li>
     <li　onclick="grandma()">グランマ</li>
@@ -52,5 +70,6 @@
     <li>工場</li>
     <li></li>
   </ul>
+</div>
 </body>
 </html>
