@@ -11,14 +11,23 @@
       body{background-image: url("monhan.jpg");}
       img{width:100px;}
       img{transition: transform.3s ease}
-      .container{display:flex;}
-      .item{flex-grow:2;}
-      .item{flex-grow:4;}
-      .item{flex-grow:3;}
+      body{ margin: 0;}
+      img{width:50px;}
+      .container{display:flex;
+                 height: 100vh;}
+      .item1{flex-grow:2;
+      background-color: black:}
+      .item2{flex-grow:4;
+      background-color: blue;}
+      .item3{flex-grow:3;
+      background-color: red;}
     </style>
   </head>
 <body>
     <script type="text/javascript">
+
+    let event_ids=[];
+
     let ls_count=localStorage.getItem("ls_count");
     if(ls_count){
       cookie_count=parseInt(ls_count);
@@ -52,8 +61,17 @@
     }
 
       function cursor(){
-        setInterval(cookieclick,1000,1);
-        setInterval("cookieclick()",1000);
+      if(cookie_count>=10){
+        cookie_count-=10;
+
+        let r_id=setInterval(cookieclick,1000,1);
+        event_ids.push(r_id);
+      }
+      }
+      function se_curser(){
+         if(event_ids.length>0)
+        　　let r_id=event_ids.pop();
+        　　clearInterval(r_id);
       }
 
       function grandma(){
@@ -77,11 +95,19 @@
     <ul>
       <li onclick="cursor()">カーソル</li>
     <li　onclick="grandma()">グランマ</li>
-    <li>農場</li>
-    <li>鉱山</li>
+    <li onclick="farm()">ファーム</li>
+    <li onclick="mine()">マイン</li>
     <li>工場</li>
     <li></li>
   </ul>
+  売却
+  <ul>
+    <li onclick="sell_cursor()">カーソル</li>
+  <li　onclick="sell_grandma()">グランマ</li>
+  <li onclick="sell_farm()">ファーム</li>
+  <li onclick="sell_mine()">マイン</li>
+  <li></li>
+</ul>
 </div>
 </body>
 </html>
