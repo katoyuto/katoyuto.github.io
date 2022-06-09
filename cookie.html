@@ -79,6 +79,11 @@
         setInterval("cookieclick()",1000);
       }
 
+      function buildings_switch() {
+        let list_ele=document.getElementById('buildings_buy');
+        list.style.display="none";
+      }
+
     </script>
     <div class="container">
     <div class="item1">
@@ -92,6 +97,8 @@
   <p class="animate__animated animate_bounce">製作途中
   </div>
   <div class="Item3">
+    <div id="buildings_buy">
+    <span onclick="buildings_switch()">購入</span>
     <ul>
       <li onclick="cursor()">カーソル</li>
     <li　onclick="grandma()">グランマ</li>
@@ -100,7 +107,9 @@
     <li>工場</li>
     <li></li>
   </ul>
+</div>
   売却
+  <div id="buildings_sell">
   <ul>
     <li onclick="sell_cursor()">カーソル</li>
   <li　onclick="sell_grandma()">グランマ</li>
@@ -108,6 +117,7 @@
   <li onclick="sell_mine()">マイン</li>
   <li></li>
 </ul>
+</div>
 </div>
 </body>
 </html>
