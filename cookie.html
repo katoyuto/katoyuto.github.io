@@ -21,6 +21,10 @@
       background-color: blue;}
       .item3{flex-grow:3;
       background-color: red;}
+
+      #buildings_sell{
+        display: none;
+      }
     </style>
   </head>
 <body>
@@ -80,7 +84,18 @@
       }
 
       function buildings_switch() {
-        let list_ele=document.getElementById('buildings_buy');
+        let buy_ele=document.getElementById('buildings_buy');
+        let sell_ele=document.getElementById('buildings_sell');
+
+        if(buy_ele.style.display !="none"){
+          buy_ele.style.display="none";
+          sell_ele.style.display="block";
+        }else{
+          buy_ele.style.display="block";
+          sell_ele.style.display="none";
+        }
+      }
+
         list.style.display="none";
       }
 
